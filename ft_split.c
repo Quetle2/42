@@ -6,25 +6,26 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:50:42 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/09 13:54:51 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:48:01 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <mcheck.h>
 
-size_t	ft_tamnhoplavra(char const *s, char c)
+static size_t	ft_tamnhoplavra(char const *s, char c)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i] != c)
+	while (s[i] && s[i] != c)
 	{
 		i++;
 	}
 	return (i);
 }
 
-size_t	ft_ctp(char const *s, char c)
+static size_t	ft_ctp(char const *s, char c)
 {
 	size_t	i;
 	size_t	ctp;
@@ -51,11 +52,11 @@ char	**ft_putmatrix(char **matrix, char const *s, char c, size_t	ctp)
 
 	i = 0;
 	j = 0;
-	while (*s == c)
+	while (*s && *s == c)
 		s++;
-	while (ctp != 0)
+	while (ctp)
 	{
-		matrix[j] = (char *)malloc(sizeof(char) * ft_tamnhoplavra(s, c) + 1);
+		matrix[j] = (char *)malloc(sizeof(char) * (ft_tamnhoplavra(s, c) + 1));
 		i = 0;
 		while (*s && *s != c)
 		{
@@ -64,7 +65,7 @@ char	**ft_putmatrix(char **matrix, char const *s, char c, size_t	ctp)
 			s++;
 		}
 		matrix[j][i] = '\0';
-		while (*s == c)
+		while (*s && *s == c)
 			s++;
 		j++;
 		ctp--;
@@ -76,35 +77,27 @@ char	**ft_putmatrix(char **matrix, char const *s, char c, size_t	ctp)
 char	**ft_split(char const *s, char c)
 {
 	char	**matrix;
-	size_t	sep;
-	size_t	i;
 
-	i = 0;
-	sep = 0;
 	if (!s)
 		return (0);
-	while (s[i])
-	{
-		if (s[i] == c)
-		sep++;
-		i++;
-	}
 	matrix = (char **)malloc(sizeof(char *) * (ft_ctp(s, c) + 1));
-	if (!matrix)
+	if (!matrix || !s)
 		return (0);
-	return (ft_putmatrix(matrix, s, c, ft_ctp(s, c)));
+	matrix = ft_putmatrix(matrix, s, c, ft_ctp(s, c));
+	return (matrix);
 }
 
-int main ()
-{
-	char	**tabstr;
+// int main ()
+// {
+// 	char	**tabstr;
 
-	tabstr = ft_split("tripoulishdw", ' ');
-	if (!tabstr[0])
-		printf("ok\n");
-    while (*tabstr)
-    {
-            printf("%s\n", *tabstr);
-            tabstr++;
-    }
-}
+// 	tabstr = ft_split("tripoulishdw", ' ');
+// 	mcheck(*tabstr, sizeof(char *) * 2);
+// 	if (!tabstr[0])
+// 		printf("ok\n");
+//     while (*tabstr)
+//     {
+//             printf("%s\n", *tabstr);
+//             tabstr++;
+//     }
+// }
