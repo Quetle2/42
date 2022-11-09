@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/26 10:34:17 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/07 14:55:52 by miandrad         ###   ########.fr       */
+/*   Created: 2022/11/04 16:21:54 by miandrad          #+#    #+#             */
+/*   Updated: 2022/11/08 17:07:08 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+// #include "libft.h"
 
-void	*ft_memchr(const void *str, int c, size_t n)
-{
-	size_t	i;
-	char	*p;
+// t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+// {
+// 	struct s_list	**nl;
 
-	p = (void *)str;
-	i = 0;
-	while (i < n)
-	{
-		if (*p == (char)c)
-		{
-			return ((void *)p);
-		}
-		p++;
-		i++;
-	}
-	return (0);
-}
+// 	if (!*f || !del)
+// 		return (0);
+// 	*nl = ft_lstnew(f(lst->content));
+// 	if (!*nl)
+// 		ft_lstclear(nl, *del((*nl)->content));
+// 	return (*nl);
+// }

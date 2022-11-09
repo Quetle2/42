@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 12:36:05 by miandrad          #+#    #+#             */
-/*   Updated: 2022/10/28 13:48:29 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/09 12:49:03 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	i;
 	size_t	j;
 
-	if (size == 0)
-		return (0);
 	j = ft_strlen(src);
 	i = ft_strlen(dst);
 	if (size <= i)

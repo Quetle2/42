@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:50:42 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/02 11:20:11 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/09 13:54:51 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,10 @@ char	**ft_putmatrix(char **matrix, char const *s, char c, size_t	ctp)
 	j = 0;
 	while (*s == c)
 		s++;
-	while (ctp)
+	while (ctp != 0)
 	{
-		matrix[j] = (char *)malloc(sizeof(char) * ft_tamnhoplavra(s, c));
+		matrix[j] = (char *)malloc(sizeof(char) * ft_tamnhoplavra(s, c) + 1);
+		i = 0;
 		while (*s && *s != c)
 		{
 			matrix[j][i] = *s;
@@ -66,7 +67,6 @@ char	**ft_putmatrix(char **matrix, char const *s, char c, size_t	ctp)
 		while (*s == c)
 			s++;
 		j++;
-		i = 0;
 		ctp--;
 	}
 	matrix[j] = 0;
@@ -83,11 +83,28 @@ char	**ft_split(char const *s, char c)
 	sep = 0;
 	if (!s)
 		return (0);
-	while (s[i++])
+	while (s[i])
+	{
 		if (s[i] == c)
-			sep++;
-	matrix = (char **)malloc(sizeof(char *) * ft_ctp(s, c) + 1);
+		sep++;
+		i++;
+	}
+	matrix = (char **)malloc(sizeof(char *) * (ft_ctp(s, c) + 1));
 	if (!matrix)
 		return (0);
 	return (ft_putmatrix(matrix, s, c, ft_ctp(s, c)));
+}
+
+int main ()
+{
+	char	**tabstr;
+
+	tabstr = ft_split("tripoulishdw", ' ');
+	if (!tabstr[0])
+		printf("ok\n");
+    while (*tabstr)
+    {
+            printf("%s\n", *tabstr);
+            tabstr++;
+    }
 }

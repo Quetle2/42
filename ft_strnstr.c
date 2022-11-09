@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:21:28 by miandrad          #+#    #+#             */
-/*   Updated: 2022/10/28 16:25:00 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/07 15:20:22 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ char	*ft_strnstr(const char	*big, const char *lit, size_t n)
 		{
 			j = i;
 			ft_verificar(big, lit, &i, &b);
-			if (!lit[b])
+			if (!lit[b] && i <= n)
 				return ((char *)big + j);
 			b = 0;
+			i = j;
 		}
 		i++;
 	}

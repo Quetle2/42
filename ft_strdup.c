@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 10:59:24 by miandrad          #+#    #+#             */
-/*   Updated: 2022/10/27 15:40:27 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/03 13:10:25 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *str)
 	size_t	size;
 
 	i = 0;
-	size = strlen(str);
+	size = ft_strlen(str);
 	p = malloc(size + 1);
 	if (!p)
 		return (0);

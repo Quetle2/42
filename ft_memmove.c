@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 16:42:24 by miandrad          #+#    #+#             */
-/*   Updated: 2022/10/25 17:11:24 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:44:01 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	*ft_memmove(void *str1, const void *str2, size_t n)
 	{
 		while (n > 0)
 		{
-		destnew[n -1] = srcnew[n - 1];
+		destnew[n - 1] = srcnew[n - 1];
 		n--;
 		}
 	}
