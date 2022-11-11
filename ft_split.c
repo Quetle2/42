@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/28 16:50:42 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/09 17:48:01 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/10 17:01:55 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static size_t	ft_ctp(char const *s, char c)
 	return (ctp);
 }
 
-char	**ft_putmatrix(char **matrix, char const *s, char c, size_t	ctp)
+static char	**ft_putmatrix(char **matrix, char const *s, char c, size_t	ctp)
 {
 	size_t	i;
 	size_t	j;

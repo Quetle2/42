@@ -6,13 +6,13 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/31 17:33:39 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/02 16:14:55 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/10 17:04:43 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_digit(int n)
+static int	ft_digit(int n)
 {
 	int	c;
 
