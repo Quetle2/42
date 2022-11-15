@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:43:50 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/15 14:36:48 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:43:19 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,6 @@ char	*get_next_line(int fd)
 
 
 
-
+	free(buff);
 	return (linha);
 }
