@@ -6,15 +6,20 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:43:50 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/15 13:08:25 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/15 14:36:48 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_linhador(char *src, char *dest)
+char	*ft_linhador(char *src)
 {
-	
+	char	*dest;
+
+	if (!ft_strchr(src, '\n'))
+		return (src);
+	dest = ft_substr(src, 0, ft_strlen(src, 1));
+	return (dest);
 }
 
 char	*get_next_line(int fd)
@@ -28,7 +33,7 @@ char	*get_next_line(int fd)
 		return (0);
 	read_ret = 1;
 	buff = malloc(BUFFER_SIZE + 1);
-	while (!ft_strchr(buff, '\n') && read_ret != 0)
+	while (!ft_strchr(temp, '\n') && read_ret != 0)
 	{
 		read_ret = read(fd, buff, BUFFER_SIZE);
 		if (read_ret == -1)
@@ -39,7 +44,7 @@ char	*get_next_line(int fd)
 		buff[BUFFER_SIZE + 1] = '\0';
 		temp = ft_strjoin(temp, buff);
 	}
-	linha = ft_linhador(temp, linha);
+	linha = ft_linhador(temp);
 
 
 
