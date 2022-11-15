@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:54:43 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/15 12:06:30 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/15 12:31:19 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,21 @@ char	*ft_strjoin(char const *str1, char const *str2)
 	}
 	p[i] = '\0';
 	return (p);
+}
+
+char	*ft_strchr(const char *str, int c)
+{
+	if ((char)c == '\0')
+		return ((char *)str + ft_strlen(str));
+	while (str)
+	{
+		if (*str == (char)c)
+		{
+			return ((char *)str);
+		}
+		else if (*str == 0)
+			return (0);
+		str++;
+	}
+	return (0);
 }
