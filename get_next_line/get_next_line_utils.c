@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:54:43 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/15 14:38:24 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:51:24 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ char	*ft_strjoin(char const *str1, char const *str2)
 		str2++;
 	}
 	p[i] = '\0';
+	free((char *)str1);
 	return (p);
 }
 

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 14:54:26 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/16 17:01:17 by miandrad         ###   ########.fr       */
+/*   Created: 2022/11/16 11:22:42 by miandrad          #+#    #+#             */
+/*   Updated: 2022/11/16 17:00:42 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "get_next_line.h"
+#define O_RDONLY 02
+#include <sys/wait.h>
+#include <string.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdio.h>
 
-# include <unistd.h>
-# include <stdlib.h>
+int	main(void)
+{
+	int		fd;
+	char	*result;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
-
-char	*get_next_line(int fd);
-char	*ft_strjoin(char const *str1, char const *str2);
-size_t	ft_strlen(const char *str, size_t n);
-char	*ft_strchr(const char *str, int c);
-char	*ft_substr(char const *str, unsigned int start, size_t len);
-
-#endif
+	fd = open("files/empty", O_RDONLY);
+	result = get_next_line(fd);
+	printf("%s\n", result);
+}
