@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 11:22:42 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/16 17:00:42 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/16 17:34:13 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ int	main(void)
 	int		fd;
 	char	*result;
 
-	fd = open("files/empty", O_RDONLY);
+	fd = open("testo.txt", O_RDONLY);
+	printf("Open seg\nfd :%i\n", fd);
 	result = get_next_line(fd);
-	printf("%s\n", result);
+	if (result)
+		printf("%s\n", result);
 }
