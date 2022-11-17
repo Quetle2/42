@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 11:22:42 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/16 17:47:12 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/17 13:10:37 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ int	main(void)
 	fd = open("testo.txt", O_RDONLY);
 	printf("Open seg\nfd :%i\n", fd);
 	result = get_next_line(fd);
-	printf(":%s\n", result);
+	printf("string final :%s\n", result);
 }

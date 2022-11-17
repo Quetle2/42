@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:54:43 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/16 14:51:24 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/17 13:46:09 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,23 +35,22 @@ char	*ft_strjoin(char const *str1, char const *str2)
 	char	*p;
 
 	i = 0;
-	if (!str1 || !str2)
+	if ((!str1 && !str2) || !str2)
 		return (0);
-	p = malloc(ft_strlen(str1, 0) + ft_strlen(str2, 0) + 1);
+	if (!str1)
+		p = malloc(ft_strlen(str2, 0));
+	else
+	{
+		p = malloc(ft_strlen(str1, 0) + ft_strlen(str2, 0) + 1);
+		if (!p)
+			return (0);
+		while (*str1 != '\0')
+			p[i++] = *str1++;
+	}
 	if (!p)
 		return (0);
-	while (*str1 != '\0')
-	{
-		p[i] = *str1;
-		i++;
-		str1++;
-	}
 	while (*str2 != '\0')
-	{
-		p[i] = *str2;
-		i++;
-		str2++;
-	}
+		p[i++] = *str2++;
 	p[i] = '\0';
 	free((char *)str1);
 	return (p);

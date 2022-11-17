@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:43:50 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/16 17:57:43 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/17 13:19:18 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ char	*get_next_line(int fd)
 		return (0);
 	read_ret = 1;
 	printf("Entrou seg\n");
-	buff = malloc(BUFFER_SIZE + 1);
 	printf("Malloc seg\n");
 	while (!ft_strchr(temp, '\n') && read_ret != 0)
 	{
+		buff = malloc(BUFFER_SIZE + 1);
 		read_ret = (int)read(fd, buff, BUFFER_SIZE);
 		if (read_ret == -1)
 		{
@@ -56,7 +56,10 @@ char	*get_next_line(int fd)
 			return (0);
 		}
 		buff[read_ret] = '\0';
+		printf("buff :%s\n", buff);
 		temp = ft_strjoin(temp, buff);
+		free(buff);
+		printf("temp :%s\n", temp);
 	}
 	printf("Read and strjoin seg\n");
 	linha = ft_linhador(temp);
