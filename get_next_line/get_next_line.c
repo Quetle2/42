@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:43:50 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/17 13:19:18 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:53:06 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,16 @@
 char	*ft_temhador(char *src)
 {
 	char	*dest;
+	int		a;
 
-	if (!src)
+	a = 0;
+	while (src[a] && src[a] != '\n')
+		a++;
+	if (!src[a])
+	{
+		free(src);
 		return (0);
+	}
 	dest = NULL;
 	return (dest);
 }
@@ -26,12 +33,19 @@ char	*ft_linhador(char *src)
 {
 	char	*dest;
 
-	if (!src)
+	if (!src[0])
 		return (0);
-	dest = ft_substr(src, 0, ft_strlen(src, 1));
-	if (ft_strlen(src, 1) == ft_strlen(src, 0))
-		free(src);
+	dest = ft_substr(src, 0, ft_strlen(src, 1) + 1);
 	return (dest);
+}
+
+char	*ft_free(char *res, char *buffer)
+{
+	char	*temp;
+
+	temp = ft_strjoin(res, buffer);
+	free(res);
+	return (temp);
 }
 
 char	*get_next_line(int fd)
@@ -41,14 +55,19 @@ char	*get_next_line(int fd)
 	char		*linha;
 	int			read_ret;
 
-	if (fd < 0)
+	if (BUFFER_SIZE <= 0 || fd < 0 || read(fd, 0, 0) < 0)
 		return (0);
 	read_ret = 1;
 	printf("Entrou seg\n");
 	printf("Malloc seg\n");
+	if (!temp)
+	{
+		temp = malloc(1);
+		temp[0] = '\0';
+	}
+	buff = malloc(BUFFER_SIZE + 1);
 	while (!ft_strchr(temp, '\n') && read_ret != 0)
 	{
-		buff = malloc(BUFFER_SIZE + 1);
 		read_ret = (int)read(fd, buff, BUFFER_SIZE);
 		if (read_ret == -1)
 		{
@@ -57,14 +76,12 @@ char	*get_next_line(int fd)
 		}
 		buff[read_ret] = '\0';
 		printf("buff :%s\n", buff);
-		temp = ft_strjoin(temp, buff);
-		free(buff);
+		temp = ft_free(temp, buff);
 		printf("temp :%s\n", temp);
 	}
+	free(buff);
 	printf("Read and strjoin seg\n");
 	linha = ft_linhador(temp);
 	temp = ft_temhador(temp);
-
-	free(buff);
 	return (linha);
 }

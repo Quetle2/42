@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:54:43 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/17 13:46:09 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:41:46 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,16 @@ char	*ft_strjoin(char const *str1, char const *str2)
 	char	*p;
 
 	i = 0;
-	if ((!str1 && !str2) || !str2)
+	if (!str1 || !str2)
 		return (0);
-	if (!str1)
-		p = malloc(ft_strlen(str2, 0));
-	else
-	{
-		p = malloc(ft_strlen(str1, 0) + ft_strlen(str2, 0) + 1);
-		if (!p)
-			return (0);
-		while (*str1 != '\0')
-			p[i++] = *str1++;
-	}
+	p = malloc(ft_strlen(str1, 0) + ft_strlen(str2, 0) + 1);
 	if (!p)
 		return (0);
+	while (*str1 != '\0')
+		p[i++] = *str1++;
 	while (*str2 != '\0')
 		p[i++] = *str2++;
 	p[i] = '\0';
-	free((char *)str1);
 	return (p);
 }
 
@@ -97,4 +89,28 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 		p[i++] = str[start++];
 	p[i] = '\0';
 	return (p);
+}
+
+// apagar
+
+void	ft_bzero(void *b, size_t n)
+{
+	size_t			a;
+	unsigned char	*dest;
+
+	dest = b;
+	a = 0;
+	while (a++ < n)
+		*dest++ = 0;
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(count * size);
+	if (ptr == NULL)
+		return (ptr);
+	ft_bzero(ptr, size * count);
+	return (ptr);
 }
