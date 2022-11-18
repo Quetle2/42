@@ -18,7 +18,7 @@ char	*ft_temhador(char *src)
 	int		i;
 	int		e;
 
-	e = ft_strlen(src, 1) + 1;
+	e = ft_strlen(src, 1);
 	i = 0;
 	if (!src[e])
 	{
