@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:54:43 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/18 15:27:13 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:00:05 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@ size_t	ft_strlen(const char *str, size_t n)
 {
 	size_t	i;
 
+	i = 0;
+	if (!str)
+		return (0);
 	if (n == 1)
 	{
-		i = 0;
 		while (str[i] != '\n' && str[i])
 			i++;
 		return (i);
 	}
-	i = 0;
 	while (str[i])
 		i++;
 	return (i);
@@ -50,7 +51,7 @@ char	*ft_strjoin(char const *str1, char const *str2)
 
 char	*ft_strchr(const char *str, int c)
 {
-	if ((char)c == '\0')
+	if (c == '\0')
 		return ((char *)str + ft_strlen(str, 0));
 	while (str)
 	{

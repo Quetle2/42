@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 11:22:42 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/18 15:24:41 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:56:42 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(void)
 	printf("string final :%s\n", result);
 	result = get_next_line(fd);
 	printf("string final :%s\n", result);
-	result = get_next_line(fd);
-	printf("string final :%s\n", result);
+	// result = get_next_line(fd);
+	// printf("string final :%s\n", result);
 	free(result);
 }
