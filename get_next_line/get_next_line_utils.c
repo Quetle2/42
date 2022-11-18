@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:54:43 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/18 14:41:46 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/18 15:27:13 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*ft_strchr(const char *str, int c)
 		return ((char *)str + ft_strlen(str, 0));
 	while (str)
 	{
-		if (*str == (char)c)
+		if (*str == c)
 		{
 			return ((char *)str);
 		}
@@ -89,28 +89,4 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 		p[i++] = str[start++];
 	p[i] = '\0';
 	return (p);
-}
-
-// apagar
-
-void	ft_bzero(void *b, size_t n)
-{
-	size_t			a;
-	unsigned char	*dest;
-
-	dest = b;
-	a = 0;
-	while (a++ < n)
-		*dest++ = 0;
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*ptr;
-
-	ptr = malloc(count * size);
-	if (ptr == NULL)
-		return (ptr);
-	ft_bzero(ptr, size * count);
-	return (ptr);
 }
