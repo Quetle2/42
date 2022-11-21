@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:43:50 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/21 14:33:42 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/21 17:48:01 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ char	*ft_temhador(char *src)
 		return (0);
 	}
 	dest = ft_calloc(ft_strlen(src, 0) - e + 1, sizeof(char));
-	dest[ft_strlen(src, 0) - e] = '\0';
 	e++;
 	while (src[e])
 		dest[i++] = src[e++];
@@ -61,7 +60,11 @@ char	*get_next_line(int fd)
 	int			read_ret;
 
 	if (BUFFER_SIZE <= 0 || fd < 0 || read(fd, 0, 0) < 0)
+	{
+		free(temp);
+		temp = NULL;
 		return (0);
+	}
 	read_ret = 1;
 	if (!temp)
 	{

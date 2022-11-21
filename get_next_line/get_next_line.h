@@ -6,9 +6,12 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:54:26 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/21 14:36:23 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/21 17:48:32 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef A70628FF_D9BF_4D12_BA61_CB51F1EF32F4
+#define A70628FF_D9BF_4D12_BA61_CB51F1EF32F4
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
@@ -29,3 +32,6 @@ char	*ft_substr(char const *str, unsigned int start, size_t len);
 void	*ft_calloc(size_t noob, size_t size);
 
 #endif
+
+
+#endif /* A70628FF_D9BF_4D12_BA61_CB51F1EF32F4 */
