@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:54:43 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/21 13:07:13 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/21 13:54:45 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,9 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 		return (p);
 	}
 	if (len <= ft_strlen(str, 0) - start)
-		p = malloc(len + 1);
+		p = ft_calloc(len + 1, sizeof(char));
 	else
-		p = malloc(ft_strlen(str, 0) - start + 1);
+		p = ft_calloc(ft_strlen(str, 0) - start + 1, sizeof(char));
 	if (!p)
 		return (NULL);
 	while (str[start] && i < len && start < ft_strlen(str, 0))

@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 11:22:42 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/21 13:18:08 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:47:12 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,22 +25,42 @@ int	main(void)
 	char	*result;
 
 	fd = open("testo.txt", O_RDONLY);
-	printf("Open seg\nfd :%i\n", fd);
+	// printf("Open seg\nfd :%i\n", fd);
 	result = get_next_line(fd);
 	printf("string final :%s\n", result);
 	free(result);
 	result = get_next_line(fd);
 	printf("string final :%s\n", result);
 	free(result);
+	if (BUFFER_SIZE > 100)
+	{
+		char	*temp;
+		do
+	{
+		temp = get_next_line(fd);
+		free(temp);
+	}
+	while (temp != NULL);
+	printf("string final null:%s\n", temp);
+	free(temp);
+}
+close(fd);
+	fd = open("testo.txt", O_RDONLY);
 	result = get_next_line(fd);
-	printf("string final :%s\n", result);
-	free(result);
+printf("string final 4:%s\n", result);
+free(result);
 	result = get_next_line(fd);
-	printf("string final :%s\n", result);
-	free(result);
+printf("string final :%s\n", result);
+free(result);
 	result = get_next_line(fd);
-	printf("string final :%s\n", result);
-	free(result);
+printf("string final :%s\n", result);
+free(result);
+	result = get_next_line(fd);
+printf("string final :%s\n", result);
+free(result);
+	result = get_next_line(fd);
+printf("string final :%s\n", result);
+free(result);
 	// result = get_next_line(fd);
 	// printf("string final :%s\n", result);
 }

@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:43:50 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/21 13:10:12 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/21 14:33:42 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ char	*get_next_line(int fd)
 		if (read_ret == -1)
 		{
 			free(buff);
+			free(temp);
 			return (0);
 		}
 		buff[read_ret] = '\0';
