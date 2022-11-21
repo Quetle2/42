@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:54:43 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/18 16:00:05 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/21 13:07:13 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,21 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 		p[i++] = str[start++];
 	p[i] = '\0';
 	return (p);
+}
+
+void	*ft_calloc(size_t noob, size_t size)
+{
+	unsigned char	*poi;
+	size_t			i;
+
+	poi = malloc(noob * size);
+	i = 0;
+	if (!poi)
+		return (0);
+	while (i < (noob * size))
+	{
+		poi[i] = '\0';
+		i++;
+	}
+	return ((void *)poi);
 }
