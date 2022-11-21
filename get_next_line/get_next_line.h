@@ -6,12 +6,12 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:54:26 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/21 17:48:32 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:02:50 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef A70628FF_D9BF_4D12_BA61_CB51F1EF32F4
-#define A70628FF_D9BF_4D12_BA61_CB51F1EF32F4
+#ifndef BBE1F538_E344_4798_8B0E_997D531B30AF
+#define BBE1F538_E344_4798_8B0E_997D531B30AF
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
@@ -34,4 +34,4 @@ void	*ft_calloc(size_t noob, size_t size);
 #endif
 
 
-#endif /* A70628FF_D9BF_4D12_BA61_CB51F1EF32F4 */
+#endif /* BBE1F538_E344_4798_8B0E_997D531B30AF */
