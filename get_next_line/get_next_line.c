@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:43:50 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/21 18:00:26 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:07:43 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,26 +52,13 @@ char	*ft_free(char *res, char *buffer)
 	return (temp);
 }
 
-char	*get_next_line(int fd)
+char	*ft_ler(char *temp, int fd)
 {
 	char		*buff;
-	static char	*temp;
-	char		*linha;
 	int			read_ret;
 
-	if (BUFFER_SIZE <= 0 || fd < 0 || read(fd, 0, 0) < 0)
-	{
-		free(temp);
-		temp = NULL;
-		return (0);
-	}
-	read_ret = 1;
-	if (!temp)
-	{
-		temp = malloc(1);
-		temp[0] = '\0';
-	}
 	buff = malloc(BUFFER_SIZE + 1);
+	read_ret = 1;
 	while (!ft_strchr(temp, '\n') && read_ret != 0)
 	{
 		read_ret = (int)read(fd, buff, BUFFER_SIZE);
@@ -85,6 +72,28 @@ char	*get_next_line(int fd)
 		temp = ft_free(temp, buff);
 	}
 	free(buff);
+	return (temp);
+}
+
+char	*get_next_line(int fd)
+{
+	static char	*temp;
+	char		*linha;
+
+	if (BUFFER_SIZE <= 0 || fd < 0 || read(fd, 0, 0) < 0)
+	{
+		free(temp);
+		temp = NULL;
+		return (0);
+	}
+	if (!temp)
+	{
+		temp = malloc(1);
+		temp[0] = '\0';
+	}
+	temp = ft_ler(temp, fd);
+	if (!temp)
+		return (0);
 	linha = ft_linhador(temp);
 	temp = ft_temhador(temp);
 	return (linha);
