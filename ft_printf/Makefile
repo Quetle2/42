@@ -6,7 +6,7 @@
 #    By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 15:52:36 by miandrad          #+#    #+#              #
-#    Updated: 2022/11/24 14:53:35 by miandrad         ###   ########.fr        #
+#    Updated: 2022/11/24 17:25:56 by miandrad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRC = 
+SRC = ft_printf.c
 
 OBJ = $(SRC:.c=.o)
 

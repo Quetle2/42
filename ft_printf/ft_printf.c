@@ -6,11 +6,11 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 12:49:03 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/24 12:54:22 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/24 17:50:07 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_printf(const char *str, ...)
 {
