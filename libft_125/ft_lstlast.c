@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/04 13:19:19 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/04 13:54:43 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:40:21 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,9 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	t_list	*temp;
-
-	temp = lst;
-	if (temp == NULL)
+	if (lst == NULL)
 		return (0);
-	while (temp->next != NULL)
-		temp = temp->next;
-	return (temp);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

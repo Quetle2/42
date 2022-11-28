@@ -6,7 +6,7 @@
 #    By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/26 15:52:36 by miandrad          #+#    #+#              #
-#    Updated: 2022/11/24 17:25:56 by miandrad         ###   ########.fr        #
+#    Updated: 2022/11/28 17:29:35 by miandrad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
-SRC = ft_printf.c
+SRC = ft_printf.c ft_printf_utils.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -50,3 +50,6 @@ re:	fclean $(NAME)
 so:
 	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRC)
 	gcc -nostartfiles -shared -o libft.so $(OBJ)
+
+run:
+	cc -Wall -Wextra -Werror -g $(SRC) $(addprefix libft/,$(LB_SRC)) && valgrind --leak-check==yes ./a.out 

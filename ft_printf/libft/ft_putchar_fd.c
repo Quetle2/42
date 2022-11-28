@@ -6,13 +6,14 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:02:31 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/09 16:11:10 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/28 17:05:57 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(int c, int fd)
 {
 	write(fd, &c, 1);
+	return (1);
 }
