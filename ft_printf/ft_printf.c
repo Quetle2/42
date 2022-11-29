@@ -6,7 +6,7 @@
 /*   By: miandrad <miandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 12:49:03 by miandrad          #+#    #+#             */
-/*   Updated: 2022/11/28 17:58:08 by miandrad         ###   ########.fr       */
+/*   Updated: 2022/11/29 13:23:14 by miandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_checkedid(va_list va_args, const char *str)
 {
-	int	ret_val;
-	t_ll nbr;
+	int			ret_val;
+	t_ll		nbr;
 
 	ret_val = 0;
 	if (*str == 'c')
@@ -26,8 +26,17 @@ int	ft_checkedid(va_list va_args, const char *str)
 		ret_val += ft_put_adress(va_arg(va_args, t_ull));
 	else if (*str == 'd' || *str == 'i')
 	{
-		ret_val += ft_put_nbr(va_arg(va_args, t_ll));
+		nbr = va_arg(va_args, int);
+		if (nbr < 0)
+			ret_val = 1;
+		ret_val += ft_put_nbr(nbr);
 	}
+	else if (*str == 'u')
+		ret_val += ft_put_nbr(va_arg(va_args, unsigned int));
+	else if (*str == 'x' || *str == 'X')
+		ret_val += ft_put_hex(va_arg(va_args, unsigned int), *str);
+	else if (*str == '%')
+		ret_val += ft_putchar_fd('%', 1);
 	return (ret_val);
 }
 
