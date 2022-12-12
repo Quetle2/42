@@ -1,0 +1,42 @@
+	HOSTNAME, USERS AND GROUPS
+
+	HOSTNAME COMMANDS
+
+$	sudo hostnamectl set-hostname <new_hostname>
+$	hostnamectl status
+
+	USER COMMANDS
+
+$	Useradd : Creates A New User.
+$	Sudo passwd <username> : Changes User password.
+$	Usermod : Changes The User’S Parameters: -L For The Username, -C For The Full Name, -G For Groups By Group Id.
+$	Userdel -r : Deletes A User And All Associated Files.
+$	Id -u : Displays User Id.
+$	Users : Shows A List Of All Currently Logged In Users.
+$	Cat /etc/passwd | cut -d ":" -f 1 : Displays A List Of All Users On The Machine.
+$	Cat /etc/passwd | awk -F '{print $1}' : Same As Above.
+
+	GROUPS COMMANDS
+
+$	Groupadd : Creates A New Group.
+$	Passwd -g <groupname> : Changes Groups Password.
+$	Gpasswd -a : Adds A User To A Group.
+$	Gpasswd -d : Removes A User From A Group.
+$	Groupdel : Deletes A Group.
+$	Groups : Displays The Groups Of A User.
+$	Id -g : Shows A User’S Main Group Id.
+$	Getent group : Displays A List Of All Users In A Group.
+
+	SCRIPT COMMANDS
+
+$	Uname : Architecture Information.
+$	/proc/cpuinfo : Cpu Information.
+$	Free : Ram Information.
+$	Df : Disk Information.
+$	Top -bn1 : Process Information.
+$	Who : Boot And Connected User Information.
+$	Lsblk : Partition And Lvm Information.
+$	/proc/net/sockstat : Tcp Information.
+$	Hostname : Hostname And Ip Information.
+$	Ip link show / ip address : Ip And Mac Information.
+
